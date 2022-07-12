@@ -1,0 +1,3 @@
+DOCKER_URL: http://localhost:8081/api/users/id/
+ZIPKIN_URL_ACTIVE: localhost:9411
+KAFKA_URL_ACTIVE: localhost:9092

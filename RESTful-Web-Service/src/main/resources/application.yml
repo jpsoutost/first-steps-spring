@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: user-service
+  zipkin:
+    baseUrl: ${ZIPKIN_URL_ACTIVE:localhost:9411}
+  kafka:
+    bootstrap-servers: ${KAFKA_URL_ACTIVE:localhost:9092}
+    consumer:
+      group-id: groupId
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            value:
+              default:
+                type: academy.mindswap.restfulwebservice.persistence.models.User
+            trusted:
+              packages: academy.mindswap
+    producer:
+      client-id: example
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      retries: 2
+    listener:
+      poll-timeout: 1800000
+      concurrency: 1
+      ack-mode: record
+  data:
+    mongodb:
+      uri: 'mongodb+srv://mindswap123:123mindswap@cluster0.e01hz.mongodb.net/users'
+      database: 'users'
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:prod}
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+server:
+  port: 8081
+
+
+

@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"academy.mindswap.restfulwebservice"},{"l":"academy.mindswap.restfulwebservice.controllers"},{"l":"academy.mindswap.restfulwebservice.handlers"},{"l":"academy.mindswap.restfulwebservice.persistence.models"},{"l":"academy.mindswap.restfulwebservice.persistence.repositories"},{"l":"All Packages","u":"allpackages-index.html"}];updateSearchResults();

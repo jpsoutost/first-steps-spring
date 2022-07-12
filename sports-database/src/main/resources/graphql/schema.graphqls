@@ -1,0 +1,14 @@
+type Query{
+    data: [Data]
+    dataByUserName(id: String): Data
+}
+
+
+
+type Data {
+    id: ID
+    userName: String
+    favouriteAthletes: [String]
+    favouriteTeams: [String]
+    favouriteSports: [String]
+}

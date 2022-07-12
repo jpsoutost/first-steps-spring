@@ -1,0 +1,5 @@
+academy.mindswap.restfulwebservice
+academy.mindswap.restfulwebservice.controllers
+academy.mindswap.restfulwebservice.handlers
+academy.mindswap.restfulwebservice.persistence.models
+academy.mindswap.restfulwebservice.persistence.repositories

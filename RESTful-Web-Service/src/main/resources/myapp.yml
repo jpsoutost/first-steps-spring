@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: myapp
+spec:
+  template:
+    metadata:
+      name: myapp-pod
+    spec:
+      containers:
+        - name: myapp
+          image: myapp
