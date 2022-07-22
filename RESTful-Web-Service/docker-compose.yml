@@ -74,28 +74,39 @@ services:
     container_name: zipkin
     ports:
       - '9411:9411'
-  user-web-service:
-    image: user-web-service
-    restart: on-failure
-    container_name: user-web-service
-    depends_on:
-      - zookeeper
-      - kafka
-      - kafka-topics-ui
-      - zipkin
-    ports:
-      - '8081:8081'
-    environment:
-      SERVER_PORT: '8081'
-      SPRING_PROFILES_ACTIVE: docker
-  sports-data-web-service:
-    image: sports-data-web-service
-    restart: on-failure
-    container_name: sports-data-web-service
-    depends_on:
-      - user-web-service
-    ports:
-      - '8002:8002'
-    environment:
-      SPRING_PROFILES_ACTIVE: docker
+#  user-web-service:
+#    image: user-web-service
+#    restart: on-failure
+#    container_name: user-web-service
+#    depends_on:
+#      - zookeeper
+#      - kafka
+#      - kafka-topics-ui
+#      - zipkin
+#    ports:
+#      - '8081:8081'
+#    environment:
+#      SERVER_PORT: '8081'
+#      SPRING_PROFILES_ACTIVE: docker
+#  sports-data-web-service:
+#    image: sports-data-web-service
+#    restart: on-failure
+#    container_name: sports-data-web-service
+#    depends_on:
+#      - user-web-service
+#      - athlete-data-service
+#    ports:
+#      - '8002:8002'
+#    environment:
+#      SPRING_PROFILES_ACTIVE: docker
+#  athlete-data-service:
+#    image: athlete-data-service
+#    restart: on-failure
+#    container_name: athlete-data-web-service
+#    depends_on:
+#      - zipkin
+#    ports:
+#      - '8003:8003'
+#    environment:
+#      SPRING_PROFILES_ACTIVE: docker
 

@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: athletes-database-service
+  zipkin:
+    baseUrl: ${ZIPKIN_URL_ACTIVE:localhost:9411}
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:prod}
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+server:
+  port: 8003
+

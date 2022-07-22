@@ -1,5 +1,6 @@
 package academy.mindswap.sportsdatabase.services;
 
+import academy.mindswap.sportsdatabase.commands.AthleteDto;
 import academy.mindswap.sportsdatabase.commands.UserDto;
 import academy.mindswap.sportsdatabase.persistence.models.PersonalData;
 import academy.mindswap.sportsdatabase.persistence.repositories.MongoDataRepository;
@@ -11,10 +12,16 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.graphql.client.HttpGraphQlClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class DataService {
@@ -28,6 +35,9 @@ public class DataService {
 
     @Autowired
     RestTemplate restTemplate;
+
+    @Autowired
+    HttpGraphQlClient http;
 
     public DataService(@Lazy MongoDataRepository dataRepository) {
         this.dataRepository = dataRepository;
@@ -55,11 +65,36 @@ public class DataService {
         LOG.info("Inside method2");
         String userName = findUserName(id);
         LOG.info("The response received by method2 is " + userName);
-        return this.dataRepository.findByUserName(userName);
+        return dataRepository.findByUserName(userName);
     }
 
     public Flux<PersonalData> findAll(){
         return this.dataRepository.findAll();
+    }
+
+    public Flux<AthleteDto> athleteData(PersonalData data){
+        LOG.info("Inside method3");
+        String[] athletes = data.getFavouriteAthletes();
+        List<AthleteDto> athleteDtos = new ArrayList<>();
+
+        for (String athlete:athletes){
+
+            String document = String.format("""
+                {
+                  athleteData(names: "%s"){
+                    name,sport,age
+                  }
+                }
+                                
+                """,athlete);
+
+            AthleteDto athleteDto = http.document(document).retrieve("athleteData").toEntity(AthleteDto.class).block();
+
+            athleteDtos.add(athleteDto);
+
+        }
+        LOG.info("The response received by method3 was" + athleteDtos);
+        return Flux.fromIterable(athleteDtos);
     }
 
 }

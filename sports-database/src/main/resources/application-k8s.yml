@@ -1,0 +1,3 @@
+ZIPKIN_URL_ACTIVE: 10.98.101.83:9411
+DOCKER_URL: http://user-web-service:8081/api/users/id/
+ATHLETE_DATA_SERVICE_URL: http://athlete-data-service:8003/graphql

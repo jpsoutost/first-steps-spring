@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono;
 
 
 @Repository
-@Profile({"prod", "docker"})
+@Profile({"prod", "docker", "k8s"})
 public interface MongoUserRepository extends BaseRepository, ReactiveMongoRepository<User, String> {
     Mono<User> findById(String id);
 
