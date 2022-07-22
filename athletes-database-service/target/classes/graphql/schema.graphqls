@@ -1,0 +1,9 @@
+type Query{
+    athleteData(names: String): Data
+}
+
+type Data {
+    name: String
+    sport: String
+    age: Int
+}

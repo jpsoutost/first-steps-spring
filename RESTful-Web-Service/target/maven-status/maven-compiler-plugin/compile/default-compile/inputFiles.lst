@@ -1,0 +1,7 @@
+/Users/joaosouto/Desktop/projetos/RESTful-Web-Service/src/main/java/academy/mindswap/restfulwebservice/persistence/repositories/UserRepository.java
+/Users/joaosouto/Desktop/projetos/RESTful-Web-Service/src/main/java/academy/mindswap/restfulwebservice/persistence/models/User.java
+/Users/joaosouto/Desktop/projetos/RESTful-Web-Service/src/main/java/academy/mindswap/restfulwebservice/persistence/repositories/MongoUserRepository.java
+/Users/joaosouto/Desktop/projetos/RESTful-Web-Service/src/main/java/academy/mindswap/restfulwebservice/RestfulWebServiceApplication.java
+/Users/joaosouto/Desktop/projetos/RESTful-Web-Service/src/main/java/academy/mindswap/restfulwebservice/persistence/repositories/Cache.java
+/Users/joaosouto/Desktop/projetos/RESTful-Web-Service/src/main/java/academy/mindswap/restfulwebservice/handlers/UserHandler.java
+/Users/joaosouto/Desktop/projetos/RESTful-Web-Service/src/main/java/academy/mindswap/restfulwebservice/controllers/UserController.java

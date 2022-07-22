@@ -1,0 +1,4 @@
+DOCKER_URL: http://user-web-service:8081/api/users/id/
+ZIPKIN_URL_ACTIVE: zipkin:9411
+KAFKA_URL_ACTIVE: kafka:9092
+ATHLETE_DATA_SERVICE_URL: http://athlete-data-service:8003/graphql
