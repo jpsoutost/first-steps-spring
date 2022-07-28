@@ -32,7 +32,7 @@ pipeline {
         }
         stage("deploy") {
             steps {
-                echo "Deploying application version:${NEW_VERSION}"
+                echo "deploying application version:${NEW_VERSION}"
             }
         }
     }
