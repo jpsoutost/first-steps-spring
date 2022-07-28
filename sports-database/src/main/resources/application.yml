@@ -5,8 +5,8 @@ spring:
     baseUrl: ${ZIPKIN_URL_ACTIVE:localhost:9411}
   data:
     mongodb:
-      uri: 'mongodb+srv://mindswap123:123mindswap@cluster0.e01hz.mongodb.net/users'
-      database: 'users'
+      uri: mongodb+srv://mindswap123:123mindswap@cluster0.e01hz.mongodb.net/users
+      database: users
   profiles:
     active: ${SPRING_PROFILES_ACTIVE:prod}
   jackson:

@@ -30,7 +30,7 @@ metadata:
   name: sports-database-service
 spec:
   selector:
-    app: user-database
+    app: sports-database
   type: LoadBalancer
   ports:
     - protocol: TCP
