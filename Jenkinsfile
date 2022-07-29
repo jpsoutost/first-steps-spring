@@ -7,7 +7,7 @@ pipeline {
         stage('Build Maven'){
             steps{
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jpsoutost/first-steps-spring.git']]])
-                sh 'mvn clean install'
+                sh 'mvn -f ./athletes-database-service clean install'
             }
         }
         stage('Build docker image'){
