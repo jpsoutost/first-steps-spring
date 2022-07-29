@@ -9,9 +9,7 @@ pipeline {
             }
         stage("build") {
             steps {
-                stage("Docker build"){
                         sh 'docker build -t jpsoutost/athlete-database ./athletes-database-service'
-                }
             }
         }
         stage("deploy") {
