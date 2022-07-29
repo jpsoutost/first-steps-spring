@@ -1,23 +1,38 @@
 pipeline {
     agent any
-    stages {
-        stage('clone repo') {
-            steps {
-                // The below will clone your repo and will be checked out to master branch by default.
-                git url: 'https://github.com/jpsoutost/first-steps-spring.git'
-                }
-            }
-        stage("build") {
-            steps {
-                        sh 'docker build -t jpsoutost/athlete-database ./athletes-database-service'
+    tools{
+        maven 'maven_3_8_6'
+    }
+    stages{
+        stage('Build Maven'){
+            steps{
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jpsoutost/first-steps-spring.git']]])
+                sh 'mvn clean install'
             }
         }
-        stage("deploy") {
-            steps {
-                sh 'kubectl apply -f ./sports-database/k8s-config-files/zipkin.yaml'
-                sh 'kubectl apply -f ./sports-database/k8s-config-files/athlete-data-service.yaml'
-                sh 'minikube service zipkin-service'
-                sh 'minikube service athlete-database-service'
+        stage('Build docker image'){
+            steps{
+                script{
+                    sh 'docker build -t jpsoutost/athlete-database ./athletes-database-service'
+                }
+            }
+        }
+        stage('Push image to Hub'){
+            steps{
+                script{
+                   withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
+                   sh 'docker login -u jpsoutost -p ${dockerhubpwd}'
+
+}
+                   sh 'docker push jpsoutost/athlete-database'
+                }
+            }
+        }
+        stage('Deploy to k8s'){
+            steps{
+                script{
+                    kubernetesDeploy configs: './sports-database/k8s-config-files/athlete-data-service.yaml', kubeConfig: [path: ''], kubeconfigId: 'k8sconfigpwd', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+                }
             }
         }
     }
