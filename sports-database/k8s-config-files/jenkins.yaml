@@ -22,9 +22,14 @@ spec:
           volumeMounts:
             - name: jenkins-home
               mountPath: /var/jenkins_home
+            - name: dockersock
+              mountPath: "/var/run/docker.sock"
       volumes:
-        - jenkins-home
-        - /var/run/docker.sock:/var/run/docker.sock
+        - name: jenkins-home
+          emptyDir: { }
+        - name: dockersock
+          hostPath:
+            path: /var/run/docker.sock
 
 ---
 apiVersion: v1
