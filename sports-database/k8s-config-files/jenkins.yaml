@@ -23,8 +23,8 @@ spec:
             - name: jenkins-home
               mountPath: /var/jenkins_home
       volumes:
-        - name: jenkins-home
-          emptyDir: { }
+        - jenkins-home
+        - /var/run/docker.sock:/var/run/docker.sock
 
 ---
 apiVersion: v1
