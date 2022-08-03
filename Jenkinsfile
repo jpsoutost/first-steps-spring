@@ -10,6 +10,7 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jpsoutost/first-steps-spring.git']]])
                 sh 'mvn -f ./athletes-database-service clean install'
 		sh 'mvn -f ./RESTful-Web-Service clean install'
+		sh 'mvn -f ./sports-database clean install'
             }
         }
         stage('Build docker image'){
@@ -17,6 +18,7 @@ pipeline {
                 script{
                     sh 'docker build -t jpsoutost/athlete-database:${BUILD_NUMBER} ./athletes-database-service'
 		    sh 'docker build -t jpsoutost/user-database:${BUILD_NUMBER} ./RESTful-Web-Service'
+		    sh 'docker build -t jpsoutost/sports-database:${BUILD_NUMBER} ./sports-database'
                 }
             }
         }
@@ -29,6 +31,7 @@ pipeline {
 }
                    sh 'docker push jpsoutost/athlete-database:${BUILD_NUMBER}'
 		   sh 'docker push jpsoutost/user-database:${BUILD_NUMBER}'
+		   sh 'docker push jpsoutost/sports-database:${BUILD_NUMBER}'
                 }
             }
         }
