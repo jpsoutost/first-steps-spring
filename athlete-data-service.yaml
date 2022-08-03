@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: athlete-database
-          image: jpsoutost/athlete-database
+          image: jpsoutost/athlete-database:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8003
