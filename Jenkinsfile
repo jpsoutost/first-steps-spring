@@ -46,5 +46,12 @@ pipeline {
                 }
             }
         }
+	stage('Deploy to k8s - sports-data'){
+            steps{
+                script{
+		    kubernetesDeploy configs: 'sports-data-web-service.yaml', kubeConfig: [path: ''], kubeconfigId: 'k8sconfigpwd', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+                }
+            }
+        }
     }
 }
