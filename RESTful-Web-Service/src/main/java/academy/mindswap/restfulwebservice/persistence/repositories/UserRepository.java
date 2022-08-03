@@ -36,11 +36,7 @@ public class UserRepository implements BaseRepository {
         users.put("5", new User("5", "Paulo"));
     }
     public Flux<User> findAll(){
-
-        Long index = 0L;
-        User[] usersArray = new User[users.size()];
-        users.values().stream().toList().toArray(usersArray);
-        return Flux.fromArray(usersArray);
+        return Flux.fromIterable(users.values());
     }
 
     public Mono<User> insert(User newUser){
