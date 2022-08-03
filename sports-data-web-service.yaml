@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sports-database
+  labels:
+    app: sports-database
+spec:
+  strategy:
+    type: RollingUpdate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sports-database
+  template:
+    metadata:
+      labels:
+        app: sports-database
+    spec:
+      containers:
+        - name: sports-database
+          image: jpsoutost/sports-database
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8002
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: k8s
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sports-database-service
+spec:
+  selector:
+    app: sports-database
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 8002
+      targetPort: 8002
+      nodePort: 30003
