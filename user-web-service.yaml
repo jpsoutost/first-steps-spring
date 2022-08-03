@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: user-database
-          image: jpsoutost/user-database
+          image: jpsoutost/user-database:${BUILD_NUMBER}
           imagePullPolicy: Always
           ports:
             - containerPort: 8081

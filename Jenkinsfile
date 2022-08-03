@@ -15,8 +15,8 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build --no-cache -t jpsoutost/athlete-database ./athletes-database-service'
-		    sh 'docker build --no-cache -t jpsoutost/user-database ./RESTful-Web-Service'
+                    sh 'docker build -t jpsoutost/athlete-database:${BUILD_NUMBER} ./athletes-database-service'
+		    sh 'docker build -t jpsoutost/user-database:${BUILD_NUMBER} ./RESTful-Web-Service'
                 }
             }
         }
@@ -27,8 +27,8 @@ pipeline {
                    sh 'docker login -u jpsoutost -p ${dockerhubpwd}'
 
 }
-                   sh 'docker push jpsoutost/athlete-database'
-		   sh 'docker push jpsoutost/user-database'
+                   sh 'docker push jpsoutost/athlete-database:${BUILD_NUMBER}'
+		   sh 'docker push jpsoutost/user-database:${BUILD_NUMBER}'
                 }
             }
         }
