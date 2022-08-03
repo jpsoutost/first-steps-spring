@@ -47,6 +47,10 @@ UserController {
         return userHandler.getUserById(id);
     }
 
+    @GetMapping(value="/test")
+    public String test() {
+        return "test run fine.";
+    }
 }
 
 
