@@ -7,7 +7,6 @@ metadata:
 spec:
   strategy:
     type: RollingUpdate
-  minReadySeconds: 180
   replicas: 1
   selector:
     matchLabels:
