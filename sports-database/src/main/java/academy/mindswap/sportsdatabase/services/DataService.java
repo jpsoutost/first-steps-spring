@@ -79,14 +79,8 @@ public class DataService {
 
         for (String athlete:athletes){
 
-            String document = String.format("""
-                {
-                  athleteData(names: "%s"){
-                    name,sport,age
-                  }
-                }
-                                
-                """,athlete);
+            String document = String.format("{athleteData(names: \"%s\"){name,sport,age}}",athlete);
+            System.out.println(document);
 
             AthleteDto athleteDto = http.document(document).retrieve("athleteData").toEntity(AthleteDto.class).block();
 
