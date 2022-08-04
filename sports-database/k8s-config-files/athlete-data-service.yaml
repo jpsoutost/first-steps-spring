@@ -25,6 +25,13 @@ spec:
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: k8s
+          livenessProbe:
+            exec:
+              command:
+                - cat
+                - /tmp/healthy
+            initialDelaySeconds: 30
+            periodSeconds: 90
 ---
 apiVersion: v1
 kind: Service
