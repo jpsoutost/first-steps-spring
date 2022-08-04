@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: sports-database
-          image: jpsoutost/sports-database
+          image: jpsoutost/sports-database:${BUILD_NUMBER}
           imagePullPolicy: Always
           ports:
             - containerPort: 8002
