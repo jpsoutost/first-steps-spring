@@ -49,7 +49,7 @@ UserController {
 
     @GetMapping(value="/test")
     public String test() {
-        return "test is tested";
+        return "test is tested. And now, another test.";
     }
 }
 
