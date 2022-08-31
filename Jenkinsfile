@@ -5,6 +5,15 @@ pipeline {
 	dockerTool 'docker'
     }
     stages{
+	stage('Build Maven'){
+            steps{
+		checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/jpsoutost/first-steps-spring.git']]])
+                sh 'mvn clean install -f ./athletes-database-service'
+		sh 'mvn clean install -f ./RESTful-Web-Service'
+		sh 'mvn clean install -f ./sports-database'
+                
+            }
+        }
         stage('Build docker image'){
             steps{
                 script{
