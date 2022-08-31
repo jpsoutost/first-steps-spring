@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="957dea96-7120-4ac5-8790-f5055171640a" name="Changes" comment="" />
+    <list default="true" id="957dea96-7120-4ac5-8790-f5055171640a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RESTful-Web-Service/src/main/resources/application-k8s.yml" beforeDir="false" afterPath="$PROJECT_DIR$/RESTful-Web-Service/src/main/resources/application-k8s.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/athletes-database-service/src/main/resources/application-k8s.yml" beforeDir="false" afterPath="$PROJECT_DIR$/athletes-database-service/src/main/resources/application-k8s.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sports-database/k8s-config-files/athlete-data-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/sports-database/k8s-config-files/athlete-data-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sports-database/k8s-config-files/kafka.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/sports-database/k8s-config-files/kafka.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sports-database/k8s-config-files/sports-data-web-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/sports-database/k8s-config-files/sports-data-web-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sports-database/k8s-config-files/user-web-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/sports-database/k8s-config-files/user-web-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sports-database/src/main/resources/application-k8s.yml" beforeDir="false" afterPath="$PROJECT_DIR$/sports-database/src/main/resources/application-k8s.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,7 +39,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/joaosouto/Desktop/projetos/spring-first-steps&quot;
+    &quot;last_opened_file_path&quot;: &quot;/Users/joaosouto/Desktop/projetos/first-steps-spring&quot;
   }
 }</component>
   <component name="RecentsManager">
