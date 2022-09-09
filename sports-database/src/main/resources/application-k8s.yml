@@ -1,3 +1,3 @@
-ZIPKIN_URL_ACTIVE: http://10.97.18.43:9411
-DOCKER_URL: http://10.98.194.23:8081/api/users/id/
-ATHLETE_DATA_SERVICE_URL: http://10.101.79.200:8003/graphql
+ZIPKIN_URL_ACTIVE: http://zipkin-service:9411
+DOCKER_URL: http://user-database-service:80/api/users/id/
+ATHLETE_DATA_SERVICE_URL: http://athlete-database-service:8003/athlete

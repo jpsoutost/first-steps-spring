@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="957dea96-7120-4ac5-8790-f5055171640a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sports-database/k8s-config-files/user-web-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/sports-database/k8s-config-files/user-web-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RESTful-Web-Service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/RESTful-Web-Service/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

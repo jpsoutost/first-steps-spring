@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.graphql.GraphQlRequest;
 import org.springframework.graphql.client.HttpGraphQlClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -80,6 +81,7 @@ public class DataService {
         for (String athlete:athletes){
 
             String document = String.format("{athleteData(names: \"%s\"){name,sport,age}}",athlete);
+
 
             AthleteDto athleteDto = http.document(document).retrieve("athleteData").toEntity(AthleteDto.class).block();
 

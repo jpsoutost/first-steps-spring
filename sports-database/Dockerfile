@@ -9,7 +9,7 @@ RUN mvn package -DskipTests
 
 ENTRYPOINT ["java","-jar","/app.jar"]
 
-FROM openjdk:17-jdk-alpine as runner
+FROM --platform=linux/amd64 openjdk:17-jdk-alpine as runner
 ENV SERVER_PORT=8002
 ENV SPRING_PROFILES_ACTIVE="prod"
 COPY --from=builder /app/target/*.jar /app.jar

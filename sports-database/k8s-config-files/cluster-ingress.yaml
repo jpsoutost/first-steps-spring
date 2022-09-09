@@ -1,0 +1,38 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cluster-ingress
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /api/
+            pathType: Prefix
+            backend:
+              service:
+                name: user-database-service
+                port:
+                  number: 80
+          - path: /zipkin
+            pathType: Prefix
+            backend:
+              service:
+                name: zipkin-service
+                port:
+                  number: 9411
+          - path: /athlete
+            pathType: Prefix
+            backend:
+              service:
+                name: athlete-database-service
+                port:
+                  number: 8003
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sports-database-service
+                port:
+                  number: 8002

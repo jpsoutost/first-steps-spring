@@ -24,6 +24,8 @@ public class AthletesRepository{
         athletes.put("Mike Tyson", new Athlete("Mike Tyson", "Boxing", 60));
         athletes.put("Roger Federer", new Athlete("Roger Federer", "Tennis", 38));
         athletes.put("Victor Iturriza", new Athlete("Victor Iturriza", "Handball", 30));
+        athletes.put("Tadej Pogacar", new Athlete("Tadej Pogacar", "Cycling", 25));
+        athletes.put("Cristiano Ronaldo", new Athlete("Cristiano Ronaldo", "Football", 37));
     }
 
     public  Mono<Athlete> findByNames(String[] names){

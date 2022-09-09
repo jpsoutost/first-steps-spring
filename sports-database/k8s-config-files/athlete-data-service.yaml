@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: athlete-database
-          image: jpsoutost/athlete-database
+          image: jpsoutost/athlete-database:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8003
@@ -33,9 +33,7 @@ metadata:
 spec:
   selector:
     app: athlete-database
-  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 8003
       targetPort: 8003
-      nodePort: 30001

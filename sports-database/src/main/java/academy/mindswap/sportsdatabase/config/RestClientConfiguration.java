@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.graphql.client.GraphQlClient;
 import org.springframework.graphql.client.HttpGraphQlClient;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -22,6 +23,7 @@ public class RestClientConfiguration {
     public WebClient getWebClient() {
         return WebClient.builder().build();
     }
+
     @Bean
     HttpGraphQlClient httpGraphQlClient(WebClient wc){
         return HttpGraphQlClient.builder(wc).url(url).build();

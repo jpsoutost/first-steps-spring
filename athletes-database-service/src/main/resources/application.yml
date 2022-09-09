@@ -8,6 +8,9 @@ spring:
   jackson:
     serialization:
       FAIL_ON_EMPTY_BEANS: false
+  graphql:
+    path: /athlete
 server:
   port: 8003
+
 

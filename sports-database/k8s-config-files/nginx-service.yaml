@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2022-09-08T08:08:59Z"
+  labels:
+    app: user-database-service
+  name: user-database-service
+  namespace: default
+  resourceVersion: "562"
+  uid: f8cf970d-03d6-43cd-9eb6-a4807541e46b
+spec:
+  clusterIP: 10.43.91.94
+  clusterIPs:
+  - 10.43.91.94
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: 80-80
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: user-database
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

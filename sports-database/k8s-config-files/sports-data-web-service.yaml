@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: sports-database
-          image: jpsoutost/sports-database
+          image: jpsoutost/sports-database:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8002
@@ -33,9 +33,7 @@ metadata:
 spec:
   selector:
     app: sports-database
-  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 8002
       targetPort: 8002
-      nodePort: 30003

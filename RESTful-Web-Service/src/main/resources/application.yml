@@ -28,7 +28,7 @@ spring:
       ack-mode: record
   data:
     mongodb:
-      uri: mongodb+srv://mindswap123:123mindswap@cluster0.e01hz.mongodb.net/users
+      uri: mongodb://mindswap123:123mindswap@cluster0-shard-00-00.e01hz.mongodb.net:27017,cluster0-shard-00-01.e01hz.mongodb.net:27017,cluster0-shard-00-02.e01hz.mongodb.net:27017/users?ssl=true&replicaSet=atlas-13mede-shard-0&authSource=admin&retryWrites=true&w=majority
       database: users
   profiles:
     active: ${SPRING_PROFILES_ACTIVE:prod}
